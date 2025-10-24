@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account - TrapDom</title>
+    <link rel="stylesheet" href="{% static 'css/create_account.css' %}">
+</head>
+<body>
+
+    <!-- === ХЕДЕР === -->
+    {% include 'my_app/header.html' %}
+
+    <!-- === КОНТЕЙНЕР ФОРМИ === -->
+    <main class="account-container">
+        <div class="account-box">
+            <h1>Create Account</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-grid">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-black">Create</button>
+                    <a href="{% url 'login' %}" class="btn-white">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    {% include 'my_app/footer.html' %}
+</body>
+</html>

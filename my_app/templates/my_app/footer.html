@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+    
+<footer>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Size Chart</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">My Account</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Get in touch</h4>
+            <p>Follow us</p>
+            <div class="social-icons">
+                <a href="#"><img src="{% static 'images/fb.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/ig.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'images/yt.png' %}" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            © 2025 TRAPDOM
+        </div>
+    </footer>
+</body>
+</html>

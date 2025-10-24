@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProject</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- === ХЕДЕР === -->
+    {% include 'my_app/header.html' %}
+
+    <!-- === Фото під хедером === -->
+    <section class="hero-section">
+        <img src="{% static 'img/collection.png' %}" alt="MyProject Collection" class="hero-image">
+    </section>
+
+    <!-- === СЛАЙДЕР === -->
+    <section class="slider-section">
+        <div class="slider-header">
+            <button class="arrow left" onclick="moveLeft()">&#10094;</button>
+            <h2>Our clothes</h2>
+            <button class="arrow right" onclick="moveRight()">&#10095;</button>
+        </div>
+
+        <div class="slider-container" id="sliderContainer">
+            {% for photo in photos %}
+                <div class="slide">
+                    {% if photo.image %}
+                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    {% else %}
+                        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+                    {% endif %}
+                    <p>{{ photo.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- === ФУТЕР === -->
+    {% include 'my_app/footer.html' %}
+    <script src="{% static 'js/slider.js' %}"></script>
+</body>
+</html>

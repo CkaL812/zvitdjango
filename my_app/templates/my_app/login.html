@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TrapDom</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+    <!-- === ХЕДЕР === -->
+    {% include 'my_app/header.html' %}
+
+    <!-- === КОНТЕЙНЕР ЛОГІНУ === -->
+    <main class="login-container">
+        <div class="login-box">
+            <h1>Login</h1>
+
+            <!-- Повідомлення про помилку -->
+            {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+            {% endif %}
+
+            <!-- ФОРМА ЛОГІНУ -->
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-black">Sign in</button>
+                    <a href="{% url 'create_account' %}" class="btn-white">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- === ФУТЕР === -->
+    {% include 'my_app/footer.html' %}
+</body>
+</html>

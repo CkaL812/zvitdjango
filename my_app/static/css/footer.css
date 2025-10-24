@@ -1,0 +1,61 @@
+/* ===== FOOTER ===== */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 6px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 22px;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-copy {
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+    font-weight: bold;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}

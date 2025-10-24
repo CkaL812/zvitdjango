@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <script src="{% static 'js/menu.js' %}" defer></script>
+
+</head>
+<body>
+    <!-- === Верхній хедер === -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <!-- Кнопка меню -->
+            <form method="POST" action="{% url 'index' %}">
+                {% csrf_token %}
+                <button type="submit" name="toggle_menu" class="menu-button">
+                    <img src="{% static 'icons/menu.svg' %}" alt="Menu" class="menu-icon">
+                </button>
+            </form>
+        </div>
+
+        <div class="nav-center">
+            <img src="{% static 'icons/logo.png' %}" alt="MyProject Logo" class="logo">
+        </div>
+
+        <div class="nav-right">
+            <form method="POST" action="{% url 'user_icon_click' %}" class="icon-form">
+                {% csrf_token %}
+                <button type="submit" class="icon-button">
+                    <img src="{% static 'icons/user.png' %}" alt="User" class="nav-icon">
+                </button>
+            </form>
+            
+        </div>
+    </nav>
+        {% if menu_open %}
+            <div class="menu-container">
+                <a href="{% url 'index' %}" class="menu-item">Main</a>
+                <a href="{% url 'category' 'business' %}" class="menu-item">Business Meeting</a>
+                <a href="{% url 'category' 'party' %}" class="menu-item">Party</a>
+                <a href="{% url 'category' 'wedding' %}" class="menu-item">Wedding</a>
+                <a href="{% url 'category' 'casual' %}" class="menu-item">Casual Walk</a>
+            </div>
+            {% endif %}
+</body>
+</html>

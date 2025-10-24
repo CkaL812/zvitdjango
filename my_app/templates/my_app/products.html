@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category }} - TrapDom</title>
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+</head>
+<body>
+
+    <!-- === ХЕДЕР === -->
+    {% include 'my_app/header.html' %}
+
+    <!-- === Заголовок сторінки === -->
+    <h2 class="page-title">{{ category }}</h2>
+
+    <!-- === Сітка продуктів === -->
+    <div class="product-grid">
+        {% for p in products %}
+        <div class="product-card">
+            {% if p.image %}
+                <!-- Фото з media/photos/... -->
+                <img src="{{ p.image.url }}" alt="{{ p.title }}">
+            {% else %}
+                <!-- Якщо фото немає — показати запасне -->
+                <img src="{% static 'img/placeholder.png' %}" alt="No image">
+            {% endif %}
+            <p class="product-name">{{ p.title }}</p>
+        </div>
+        {% empty %}
+        <p class="no-products">Немає товарів у цій категорії.</p>
+        {% endfor %}
+    </div>
+
+    <!-- === ФУТЕР === -->
+    {% include 'my_app/footer.html' %}
+
+</body>
+</html>
